@@ -1,0 +1,34 @@
+<main>
+  <app-toolbar></app-toolbar>
+
+  <mat-sidenav-container class="main-content">
+    <mat-sidenav position="start" mode="side" opened class="main-sidenav">
+      <app-sidebar>
+        <div class="nav-links">
+          <ul *ngFor="let item of links">
+            <a>
+              <li [routerLink]="item.path" routerLinkActive="active">
+                <div class="flex-icon">
+                  <div>
+
+                    <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+                  </div>
+                  <div>{{ item.label }}</div>
+                </div>
+              </li>
+            </a>
+          </ul>
+        </div>
+
+        <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="logout()">
+          <mat-icon>logout</mat-icon>
+        </button>
+      </app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="px-3 pb-4">
+        <ng-content></ng-content>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</main>

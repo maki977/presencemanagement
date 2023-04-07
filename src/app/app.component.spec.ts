@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'PresenceManagement-front'`, () => {
+  it(`should have as title 'presence-management-fe-diallo'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('PresenceManagement-front');
+    expect(app.title).toEqual('presence-management-fe-diallo');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('PresenceManagement-front app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('presence-management-fe-diallo app is running!');
   });
 });

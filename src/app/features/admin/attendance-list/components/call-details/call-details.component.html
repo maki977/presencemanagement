@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="d-flex">
+      <mat-card-title>Pointage</mat-card-title>
+      <div class="ms-auto">
+        <button color="primary" mat-raised-button (click)="printData()">
+          Imprimer
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Position Column -->
+      <ng-container matColumnDef="lastName">
+        <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.lastName | uppercase }}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="firstName">
+        <mat-header-cell *matHeaderCellDef> Prénom </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.firstName }} </mat-cell>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.email.slice(3, 5) }}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <span [ngClass]="getClass(element)">{{ getText(element) }}</span>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </div>
+
+  <div class="row mt-5"></div>
+</div>
